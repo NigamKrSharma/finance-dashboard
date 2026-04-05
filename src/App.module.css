@@ -1,0 +1,33 @@
+/* src/App.module.css */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Main area sits to the right of the fixed sidebar */
+.mainWrapper {
+  margin-left: 240px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0; /* important: prevents flex overflow */
+}
+
+/* Scrollable content area */
+.content {
+  flex: 1;
+  padding: 24px 28px 40px;
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .mainWrapper {
+    margin-left: 0; /* sidebar is off-screen on mobile */
+  }
+
+  .content {
+    padding: 20px 16px 40px;
+  }
+}

@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# FinTrack — Finance Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, interactive personal finance dashboard built with React, CSS Modules, and Chart.js.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Setup Instructions
 
-### `npm start`
+### Prerequisites
+- Node.js v16 or higher
+- npm v7 or higher
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Run Locally
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+# 1. Clone / unzip the project
+cd finance-dashboard
 
-### `npm test`
+# 2. Install dependencies
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 3. Start the dev server
+npm start
+```
 
-### `npm run build`
+The app will open at `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Build for Production
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+src/
+├── components/
+│   ├── Sidebar/               # Navigation sidebar + role switcher
+│   │   ├── Sidebar.js
+│   │   └── Sidebar.module.css
+│   ├── TopBar/                # Top header with page title
+│   │   ├── TopBar.js
+│   │   └── TopBar.module.css
+│   ├── SummaryCards/          # Balance, Income, Expense, Savings Rate cards
+│   │   ├── SummaryCards.js
+│   │   └── SummaryCards.module.css
+│   ├── Charts/                # All Chart.js visualizations
+│   │   ├── BalanceTrendChart.js      # Line chart — cumulative balance
+│   │   ├── SpendingCategoryChart.js  # Doughnut chart — category breakdown
+│   │   ├── MonthlyCompareChart.js    # Bar chart — income vs expense
+│   │   └── Charts.module.css
+│   ├── Dashboard/             # Main overview page
+│   │   ├── DashboardPage.js
+│   │   └── Dashboard.module.css
+│   ├── Transactions/          # Transactions page with table + filters
+│   │   ├── TransactionsPage.js
+│   │   ├── TransactionFilters.js
+│   │   ├── TransactionTable.js
+│   │   └── Transactions.module.css
+│   ├── Insights/              # Insights page with stats + progress bars
+│   │   ├── InsightsPage.js
+│   │   └── Insights.module.css
+│   └── Modal/                 # Add/Edit transaction modal
+│       ├── AddEditModal.js
+│       └── Modal.module.css
+├── context/
+│   └── AppContext.js          # Global state using React Context API
+├── data/
+│   └── transactions.js        # Mock transaction data + category colors
+├── hooks/
+│   └── useFilteredTransactions.js   # Custom hook for filter + sort logic
+├── utils/
+│   └── helpers.js             # Utility functions (format, calc, etc.)
+├── App.js                     # Root component, layout + page routing
+├── App.module.css
+├── index.css                  # Global CSS variables and resets
+└── index.js                   # React entry point
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Dashboard Overview
+- 4 summary cards: Total Balance, Total Income, Total Expenses, Savings Rate
+- Line chart: cumulative balance trend over months
+- Doughnut chart: spending breakdown by category
+- Bar chart: monthly income vs expenses comparison
 
-## Learn More
+### Transactions Page
+- Full transaction table with date, description, category, type, amount
+- Search by description or category
+- Filter by type (income / expense) and by category
+- Sortable columns (date, category, type, amount)
+- Export filtered transactions as CSV
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Role-Based UI
+Switch roles from the sidebar dropdown:
+- **Viewer** — read-only, no edit/add/delete controls visible
+- **Admin** — Edit and Delete buttons appear per row; Add Transaction button unlocked
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Insights Page
+- 6 KPI cards: top category, savings rate, best/worst month, biggest expense, avg monthly expense
+- Category spending with animated progress bars
+- Written observations auto-generated from the data
 
-### Code Splitting
+### State Management
+- React Context API (`AppContext.js`) manages: transactions, active role, filters, sort, sidebar state
+- `useFilteredTransactions` custom hook keeps filter + sort logic out of components
+- All state persists to `localStorage` automatically
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Optional Enhancements Included
+- Dark mode (always on — full dark theme with CSS variables)
+- localStorage persistence (transactions + role survive page refresh)
+- CSV export for filtered transactions
+- Animations on modal open (slide-up + fade-in)
+- Responsive layout — works on mobile, tablet, and desktop
+- Empty state handling on table and insights page
+- Reset button to restore original mock data
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Design Decisions
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **CSS Modules** — each component has its own `.module.css` file to avoid class name collisions and keep styles co-located
+- **Chart.js auto** — uses `chart.js/auto` import so you don't need to register every component manually
+- **No external state library** — React Context + `useState` is sufficient for this scale; no need to add Redux overhead
+- **Fresher-style code** — explicit variable names, comments explaining "why", simple logic over clever abstractions

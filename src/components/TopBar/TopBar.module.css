@@ -1,0 +1,126 @@
+
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text2);
+  margin: 2px 0 0;
+  font-family: var(--font-mono);
+}
+
+
+.hamburger {
+  display: none;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.rolePill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-mono);
+}
+
+.rolePill.admin {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent2);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.rolePill.viewer {
+  background: rgba(38, 198, 218, 0.12);
+  color: var(--teal);
+  border: 1px solid rgba(38, 198, 218, 0.25);
+}
+
+.roleIcon {
+  font-size: 12px;
+}
+
+/* Reset button */
+.resetBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.resetBtn:hover {
+  color: var(--text);
+  border-color: var(--text3);
+  background: var(--bg4);
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .topbar {
+    padding: 16px 18px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 560px) {
+  .rolePill {
+    display: none; /* hide role pill on small screens to save space */
+  }
+
+  .resetBtn span {
+    display: none;
+  }
+}

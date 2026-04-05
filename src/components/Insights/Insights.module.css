@@ -1,0 +1,182 @@
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.insightCard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.insightCard:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+
+.insightLabel {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px;
+}
+
+.insightValue {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.insightNote {
+  font-size: 12px;
+  color: var(--text2);
+  margin: 0;
+}
+
+.breakdownCard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.breakdownHeader {
+  margin-bottom: 20px;
+}
+
+.breakdownTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 3px;
+}
+
+.breakdownSub {
+  font-size: 12px;
+  color: var(--text2);
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.breakdownList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.breakdownRow {
+}
+
+.breakdownInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.breakdownName {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.breakdownAmt {
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+.progressBar {
+  height: 7px;
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.observationsCard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.obsList {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.obsItem {
+  font-size: 13.5px;
+  color: var(--text2);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.obsItem::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--text3);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  color: var(--text3);
+  margin: 0 0 12px;
+}
+
+.emptyText {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text2);
+  margin: 0 0 5px;
+}
+
+.emptyHint {
+  font-size: 12px;
+  color: var(--text3);
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .insightValue {
+    font-size: 16px;
+  }
+}

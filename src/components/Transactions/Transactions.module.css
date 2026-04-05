@@ -1,0 +1,313 @@
+/* src/components/Transactions/Transactions.module.css */
+
+/* Section header row */
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 3px;
+}
+
+.sectionCount {
+  font-size: 12px;
+  color: var(--text2);
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.headerActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.exportBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.exportBtn:hover {
+  color: var(--text);
+  background: var(--bg4);
+}
+
+.addBtn {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.addBtn:hover {
+  background: var(--accent2);
+}
+
+/* Filters row */
+.filtersRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 200px;
+  flex: 1;
+}
+
+.filterInput:focus {
+  border-color: var(--accent);
+}
+
+.filterSelect {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.clearBtn {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.clearBtn:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* Table wrapper with scroll on mobile */
+.tableWrap {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.th.sortable {
+  cursor: pointer;
+}
+
+.th.sortable:hover {
+  color: var(--text2);
+}
+
+.sortArrow {
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.tr:hover .td {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  vertical-align: middle;
+  color: var(--text);
+  transition: background 0.1s;
+}
+
+.tr:last-child .td {
+  border-bottom: none;
+}
+
+/* Category badge */
+.catBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Type badge */
+.typeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.typeBadge.income {
+  background: rgba(61, 214, 140, 0.12);
+  color: var(--green);
+}
+
+.typeBadge.expense {
+  background: rgba(247, 101, 101, 0.12);
+  color: var(--red);
+}
+
+/* Amount */
+.amount {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.amount.income {
+  color: var(--green);
+}
+
+.amount.expense {
+  color: var(--red);
+}
+
+/* Action buttons */
+.actionBtns {
+  display: flex;
+  gap: 6px;
+}
+
+.editBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 4px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: var(--font-main);
+  transition: all 0.15s;
+}
+
+.editBtn:hover {
+  background: var(--bg4);
+  color: var(--accent2);
+  border-color: var(--accent);
+}
+
+.deleteBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 4px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: var(--font-main);
+  transition: all 0.15s;
+}
+
+.deleteBtn:hover {
+  color: var(--red);
+  border-color: var(--red);
+  background: rgba(247, 101, 101, 0.08);
+}
+
+/* Empty state */
+.emptyState {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  display: block;
+  font-size: 28px;
+  color: var(--text3);
+  margin-bottom: 12px;
+}
+
+.emptyText {
+  font-size: 14px;
+  color: var(--text2);
+  margin: 0 0 5px;
+  font-weight: 500;
+}
+
+.emptyHint {
+  font-size: 12px;
+  color: var(--text3);
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 600px) {
+  .filterInput {
+    min-width: 100%;
+  }
+  .filterSelect {
+    min-width: calc(50% - 5px);
+    flex: 1;
+  }
+}

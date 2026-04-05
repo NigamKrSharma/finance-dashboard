@@ -1,13 +1,87 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* Fonts */
+  --font-main: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Dark background layers */
+  --bg: #0d0e13;
+  --bg2: #13151c;
+  --bg3: #1a1d27;
+  --bg4: #222538;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.065);
+  --border2: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text: #e6e8f5;
+  --text2: #8a8eaa;
+  --text3: #52566e;
+
+  /* Accent colors */
+  --accent: #6c63ff;
+  --accent2: #8b83ff;
+  --green: #3dd68c;
+  --red: #f76565;
+  --amber: #f9a825;
+  --teal: #26c6da;
+  --pink: #f48fb1;
+}
+
+/* ===== Base Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Remove default select arrow in some browsers */
+select {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text3);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
 }
